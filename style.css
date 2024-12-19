@@ -1,0 +1,138 @@
+/* Stili per l'intera pagina */
+body {
+    font-family: 'Georgia', serif; /* Cambiato a un font serif per un aspetto più classico */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-image: url('lastoria.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Stili per l'header */
+header {
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay per migliorare la leggibilità */
+    color: #fff;
+    padding: 40px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3rem; /* Font più grande per il titolo */
+    margin: 0;
+}
+
+header form {
+    margin-top: 20px;
+}
+
+header input[type="text"] {
+    padding: 10px;
+    font-size: 1rem;
+    width: 60%;
+    border: none;
+    border-radius: 5px;
+}
+
+header button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #ffd700;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+header button:hover {
+    background-color: #ffcc00;
+}
+
+/* Navigazione */
+nav ul {
+    list-style-type: none;
+    margin: 20px 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+nav ul li a:hover {
+    color: #ffd700;
+}
+
+/* Sezioni principali */
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.section-container {
+    margin-bottom: 20px;
+}
+
+section {
+    background-color: rgba(255, 255, 255, 0.9); /* Leggermente più chiaro per migliorare la leggibilità */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    font-size: 2rem;
+    margin-top: 0;
+    color: #333;
+}
+
+section p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Footer */
+footer {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Stili specifici per il banner "Chi siamo" */
+#chiSiamoBanner {
+    background-color: rgba(255, 255, 255, 0.9); /* Più chiaro per leggibilità */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#chiSiamoBanner h2 {
+    margin-top: 0;
+    font-size: 2rem;
+}
+
+/* Media query per dispositivi mobili */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header input[type="text"] {
+        width: 80%;
+    }
+
+    header button {
+       

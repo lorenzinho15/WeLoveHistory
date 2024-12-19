@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz </title>
+    <style>
+        /* Stili principali */
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-image: url('lastoria.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 100px ;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .question {
+            margin-bottom: 30px;
+            margin-top: 30px;
+        }
+
+        .question h2 {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .options {
+            list-style: none;
+            padding: 0;
+        }
+
+        .options li {
+            margin: 10px 0;
+        }
+
+        .options input {
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #e0df89;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ecdb97;
+        }
+
+        .results {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .correct {
+            color: green;
+        }
+
+        .incorrect {
+            color: rgb(233, 60, 60);
+        }
+
+        .incorrect input {
+            background-color: red;
+        }
+
+        .correct input {
+            background-color: rgb(88, 233, 88);
+        }
+
+        #score-counter {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+/* Stili per l'intera pagina */
+body {
+    font-family: 'Georgia', serif; /* Cambiato a un font serif per un aspetto più classico */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-image: url('lastoria.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Stili per l'header */
+header {
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay per migliorare la leggibilità */
+    color: #fff;
+    padding: 40px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3rem; /* Font più grande per il titolo */
+    margin: 0;
+}
+
+header form {
+    margin-top: 20px;
+}
+
+header input[type="text"] {
+    padding: 10px;
+    font-size: 1rem;
+    width: 60%;
+    border: none;
+    border-radius: 5px;
+}
+
+header button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #ffd700;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+header button:hover {
+    background-color: #ffcc00;
+}
+
+/* Navigazione */
+nav ul {
+    list-style-type: none;
+    margin: 20px 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+nav ul li a:hover {
+    color: #ffd700;
+}
+
+/* Sezioni principali */
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.section-container {
+    margin-bottom: 20px;
+}
+
+section {
+    background-color: rgba(255, 255, 255, 0.9); /* Leggermente più chiaro per migliorare la leggibilità */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    font-size: 2rem;
+    margin-top: 0;
+    color: #333;
+}
+
+section p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Footer */
+footer {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Stili specifici per il banner "Chi siamo" */
+#chiSiamoBanner {
+    background-color: rgba(255, 255, 255, 0.9); /* Più chiaro per leggibilità */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#chiSiamoBanner h2 {
+    margin-top: 0;
+    font-size: 2rem;
+}
+
+/* Media query per dispositivi mobili */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header input[type="text"] {
+        width: 80%;
+    }
+
+    header button {
+       
+
+    </style>
+</head>
+<body>
+
+    
+    <header>
+        <h1>Quiz Storico</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="belle_epoque.html">Belle Époque</a></li>
+                <li><a href="colonizzazione_imperialismo.html">Colonizzazione ed Imperialismo</a></li>
+                <li><a href="prima_guerra_mondiale.html">Prima Guerra Mondiale</a></li>
+                <li><a href="comunismo.html">Comunismo</a></li>
+                <li><a href="fascismo.html">Fascismo</a></li>
+                <li><a href="nazismo.html">Nazismo</a></li>
+                <li><a href="seconda_guerra_mondiale.html">Seconda Guerra Mondiale</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="score-counter">Risposte giuste: 0 | Risposte sbagliate: 0</div>
+        <div id="quiz-container"></div>
+        <button id="next-btn" style="display: none;">Prossima domanda</button>
+        <div id="results" class="results" style="display: none;"></div>
+    </main>
+    <script>
+        const questions = [
+            {
+                question: "Qual è stata una delle cause principali della Rivoluzione Francese?",
+                options: [
+                    "Il collasso economico e sociale della monarchia francese",
+                    "La Rivoluzione Industriale",
+                    "La guerra civile inglese",
+                    "Il Trattato di Versailles"
+                ],
+                correct: 0
+            },
+            {
+                question: "In quale anno è scoppiata la Prima Guerra Mondiale?",
+                options: [
+                    "1905",
+                    "1914",
+                    "1939",
+                    "1918"
+                ],
+                correct: 1
+            },
+            {
+                question: "Chi era il leader del Partito Nazista in Germania?",
+                options: [
+                    "Adolf Hitler",
+                    "Joseph Stalin",
+                    "Winston Churchill",
+                    "Franklin D. Roosevelt"
+                ],
+                correct: 0
+            },
+            {
+                question: "Qual è stato il simbolo della rivoluzione russa del 1917?",
+                options: [
+                    "La falce e il martello",
+                    "Il tricolore francese",
+                    "L'aquila imperiale",
+                    "Il leone britannico"
+                ],
+                correct: 0
+            },
+            {
+                question: "Quando è stata proclamata la Repubblica Italiana?",
+                options: [
+                    "1918",
+                    "1946",
+                    "1965",
+                    "1929"
+                ],
+                correct: 1
+            },
+            {
+                question: "Quale paese ha subito il bombardamento atomico durante la Seconda Guerra Mondiale?",
+                options: [
+                    "Cina",
+                    "Giappone",
+                    "Germania",
+                    "Italia"
+                ],
+                correct: 1
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let correctAnswers = 0;
+        let incorrectAnswers = 0;
+
+        function renderQuiz() {
+            const quizContainer = document.getElementById("quiz-container");
+            const q = questions[currentQuestionIndex];
+            quizContainer.innerHTML = `
+                <div class="question">
+                    <h2>${currentQuestionIndex + 1}. ${q.question}</h2>
+                    <ul class="options">
+                        ${q.options
+                            .map(
+                                (option, i) => `
+                                <li>
+                                    <label>
+                                        <input type="radio" name="question" value="${i}" onclick="checkAnswer(${i})">
+                                        ${option}
+                                    </label>
+                                </li>
+                            `
+                            )
+                            .join("")}
+                    </ul>
+                </div>
+            `;
+        }
+
+        function updateScore() {
+            const scoreCounter = document.getElementById("score-counter");
+            scoreCounter.innerHTML = `Risposte giuste: ${correctAnswers} | Risposte sbagliate: ${incorrectAnswers}`;
+        }
+
+        function checkAnswer(selectedOption) {
+            const q = questions[currentQuestionIndex];
+            const options = document.querySelectorAll(`input[name="question"]`);
+            
+            // Evidenzia la risposta corretta
+            options.forEach((input, i) => {
+                if (i === q.correct) {
+                    input.parentElement.style.backgroundColor = "green";  // Giusto
+                } else if (input.checked) {
+                    input.parentElement.style.backgroundColor = "red";  // Sbagliato
+                }
+            });
+
+            // Aggiungi o aggiorna il punteggio
+            if (selectedOption === q.correct) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+
+            updateScore();
+
+            // Mostra il pulsante per la domanda successiva
+            document.getElementById("next-btn").style.display = "inline-block";
+        }
+
+        document.getElementById("next-btn").addEventListener("click", () => {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                renderQuiz();
+                document.getElementById("next-btn").style.display = "none";
+            } else {
+                document.getElementById("quiz-container").style.display = "none";
+                document.getElementById("results").style.display = "block";
+                document.getElementById("results").innerHTML = `<p>Hai completato il quiz!</p><p>Punteggio finale: ${correctAnswers} su ${questions.length}</p>`;
+            }
+        });
+
+        renderQuiz();
+    </script>
+</body>
+</html>
